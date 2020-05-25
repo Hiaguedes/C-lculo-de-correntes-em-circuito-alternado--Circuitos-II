@@ -122,7 +122,7 @@ n=input("Informe a primeira malha\n ");
   m=P(2);
   K(n,m)=K(m,n)=K(n,m)-R(nR);
    K(n,n)=K(n,n)+R(nR);
-  K(m,m)=K(m,m)-R(nR);
+  K(m,m)=K(m,m)+R(nR);
   elseif (po==('n')||po==('N'))
   n=input("Informe a malha\n");
  K(n,n)=K(n,n)+R(nR);
@@ -159,7 +159,7 @@ n=input('Informe a primeira malha\n ');
   m=P(2);
   K(n,m)=K(m,n)=K(n,m)-XC(nC);
   K(n,n)=K(n,n)+XC(nC);
-  K(m,m)=K(m,m)-XC(nC);
+  K(m,m)=K(m,m)+XC(nC);
   elseif (po==('n')||po==('N'))
   n=input("Informe a malha\n");
  K(n,n)=K(n,n)+XC(nC);
@@ -196,7 +196,7 @@ endif
   m=P(2);
   K(n,m)=K(m,n)=K(n,m)-XL(nL);
   K(n,n)=K(n,n)+XL(nL);
-  K(m,m)=K(m,m)-XL(nL);
+  K(m,m)=K(m,m)+XL(nL);
    %K(n,n)=K(n,n)+XL(nL);
   elseif (po==('N')||po==('n'))
   n=input("Informe a malha\n");
