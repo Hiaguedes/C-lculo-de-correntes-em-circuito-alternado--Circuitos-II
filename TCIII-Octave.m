@@ -20,7 +20,7 @@ F=zeros(h,1);
 printf('---------------------------------------');
 printf("\nSerao selecionados agora as fontes\n");
 printf('---------------------------------------\n');
-op=input("Fonte de corrente ou de tensao? t ou c \n Aperte s pra sair da seleçao \n",'s');
+op=input("Fonte de corrente ou de tensao? c ou t \n Aperte s pra sair da selecao \n",'s');
 nI=0;
 nV=0;
 
@@ -85,7 +85,7 @@ endif
 endif
 nV=nV+1;
 V(nV)= a + b*i;
-op=input("Deseja mais fontes de tensao? Digite t \n Aperte s pra sair da seleçao \n",'s');
+op=input("Deseja mais fontes de tensao? Digite t \n Aperte s pra sair da selecao \n",'s');
 if (op == ('corrente') || op == ('c') || op ==('CORRENTE'))
   op=input("Incorreto: Informe se quer mais fontes de tensao ou se deseja sair\n t ou s",'s');
 endif 
@@ -149,8 +149,8 @@ XC(nC)=-i/(w.*C(nC));
 po=input("Componente esta entre duas malhas? S ou N \n",'s');
 
 if (po==('S')||po==('s'))
-n=input('Informe a primeira malha\n ');
-  m=input('Informe a segunda malha\n ');
+n=input("Informe a primeira malha\n ");
+  m=input("Informe a segunda malha\n ");
   if(n>h || m>h)
   printf('Erro: componente nao pode estar numa malha maior que a estabelecida inicialmente');
   endif
@@ -206,12 +206,9 @@ endif
 
 t2=input("Tera mais indutores? S ou N\n",'s');
 endwhile
-
+clc;
 %Componentes Selecionados---------------------------------------------
 printf("Voce selecionou %i resistores,%i capacitores e %i indutores\n",nR,nC,nL);
-for(x=1:nV)
-printf(" V(%i)=%.3f + %.3fi V |",x,real(V(x)),imag(V(x)));
-endfor
 printf('\n');
 for(x=1:nI)
 printf(" I(%i)=%.3f +%.3fi A |",x,real(I(x)),imag(I(x)));
@@ -233,9 +230,15 @@ endfor
 I=inv(K)*F;
 printf('\n');
 printf('-------------------------------------');
-printf("\nResultado das correntes nas malhas\n");
+printf("\nResultado tensoes e das correntes nas malhas\n");
+printf('\n');
+for(x=1:nV)
+printf(" V(%i)=%.3f + %.3fi V |",x,real(V(x)),imag(V(x)));
+endfor
+printf('\n');
 printf('-------------------------------------\n');
+printf('\n');
 for(x=1:h)
 %printf("I(%i)=%.7f + %.7fi  A\n",x,real(I(x)),imag(I(x)));
-printf("I(%i)=%.7f A < %.7f ° \n",x,abs(I(x)),(pi\180)*angle(I(x)) );
+printf("I(%i)=%.7f A < %.7f A \n",x,abs(I(x)),(pi\180)*angle(I(x)) );
 endfor 
